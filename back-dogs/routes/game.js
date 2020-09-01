@@ -9,7 +9,7 @@ var multipart = require('connect-multiparty');
 var multipartMiddleware = multipart({ uploadDir: './uploads'});
 
 router.get('/home', GameController.home);
-router.post('/save', GameController.saveGame);
+router.post('/save-game', GameController.saveGame);
 router.get('/games', GameController.getGames);
 router.get('/game:name?', GameController.getGame);
 router.delete('/delete:id', GameController.deleteGame);

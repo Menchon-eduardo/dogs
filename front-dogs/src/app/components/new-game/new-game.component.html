@@ -1,1 +1,47 @@
-<p>new-game works!</p>
+<div class="container">
+    <h2>Create a new game</h2>
+    <div class= "message success" *ngIf="status == 'success'">
+        The game has been created successfully
+    </div>
+    <div class= "message failed" *ngIf="status == 'failed'">
+        The game hasn't been created 
+    </div>
+    
+    <form #gameForm="ngForm" (ngSubmit)="onSubmit(gameForm)">
+        <p>
+            <label for="name">Name</label>
+            <input type="text" name="name" #name="ngModel" [(ngModel)]="game.name"required/>
+            <span class="form_error" *ngIf="name.touched && !name.valid">
+                The game needs a name
+            </span>
+        </p>
+        <p>
+            <label for="master">Game master</label>
+            <input type="text" name="master" #master="ngModel" [(ngModel)]="game.master"required/>
+            <span class="form_error" *ngIf="master.touched && !master.valid">
+                The game needs a Game master
+            </span>
+        </p>
+        <p>
+            <label for="sinopsis">Sinopsis</label>
+            <textarea  name="sinopsis" #sinopsis="ngModel" [(ngModel)]="game.sinopsis"required></textarea>
+            <span class="form_error" *ngIf="sinopsis.touched && !sinopsis.valid">
+                The game needs a sinopsis
+            </span>
+        </p>
+        <p>
+            <label for="numPlayers">How many players?</label>
+            <input type="number"  name="numPlayers" #numplayers="ngModel" [(ngModel)]="game.numPlayers"/>
+           
+        </p>
+        <input type="submit" value="Create" [disabled]="!gameForm.form.valid"/>
+    </form>
+
+    
+
+
+
+
+
+
+</div>
