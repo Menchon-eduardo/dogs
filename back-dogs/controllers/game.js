@@ -32,18 +32,17 @@ var controller = {
             message: "save game working"})
     },
     getGame: function(req, res){
+        var gameName =req.params.name;
         var gameId= req.params.id;
 
-        if(gameId == null){
+        if(gameName == null){
             return res.status(404).send({message: "The game doesn't exists", err});
         };
 
-        Game.findById(gameId, (err, game) => {
+        Game.findOne({"name":gameName}, function(err, game) {
             if(err) return res.status(500).send({message: "Error getting game"});
             if(!game) return res.status(404).send({message: "The game doesn't exists", err});
-            return res.status(200).send({
-                game
-            });
+            return res.status(200).send({game});
         });
     },
     getGames: function(req, res) {

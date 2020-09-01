@@ -1,0 +1,17 @@
+<div class=start>
+    <!--<h3>Start</h3>-->
+    <span class= "loadError" *ngIf= "status == 'failed'">The game doesn't exist</span>
+    <form >
+    <p>
+           <input type="button" [routerLink]="['/new-game']" [routerLinkActive]= "['actived']" value="New Game">
+       </p>
+       <p>
+           <label for="load-game">Load game</label>
+          <input type="text" [(ngModel)]="gameName" name="name" (keyup.enter)="checkGames(gameName)">
+  
+       </p>
+      
+
+
+    </form>
+</div>
