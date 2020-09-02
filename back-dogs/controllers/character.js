@@ -8,17 +8,20 @@ var controller = {
     saveCharacter: function(req, res) {
         var character = new Character();
         var params= req.body;
+        character.game= params.game;
         character.name = params.name;
         character.background = params.background;
         character.description = params.description;
-        character.stats.acuity = params.stats.acuity;
-        character.stats.body = params.stats.body;
-        character.stats.heart = params.stats.heart;
-        character.stats.will = params.stats.will;
+        character.acuity = params.acuity;
+        character.body = params.body;
+        character.heart = params.heart;
+        character.will = params.will;
         character.traits = params.traits;
         character.relationships = params.relationships;
         character.belongings = params.belongings;
         character.file = params.file;
+        character.pc = params.pc;
+        
         
 
         character.save((err,characterStored) =>{
@@ -46,6 +49,21 @@ var controller = {
             });
         });
     },
+    getCharactersInGame: function(req, res){
+        var characterGame= req.params.game;
+
+        if(characterGame == null){
+            return res.status(404).send({message: "The charcter doesn't exists", err});
+        };
+
+        Character.find({game : characterGame}, (err, character) => {
+            if(err) return res.status(500).send({message: "Error getting character"});
+            if(!character) return res.status(404).send({message: "The character doesn't exists", err});
+            return res.status(200).send({
+                character
+            });
+        });
+    },
     getCharacters: function(req, res) {
         Character.find({}).exec((err, character) => {
             if(err) return res.status(500).send({message: "Error getting characters"});
@@ -65,7 +83,7 @@ var controller = {
         })
 
     },
-    deletecharacter: function (req, res) {
+    deleteCharacter: function (req, res) {
         var characterId = req.params.id;
         Character.findByIdAndDelete(characterId, (err, characterRemoved) => {
             if(err) return res.status(500).send({message: "Error deleting character", err});
