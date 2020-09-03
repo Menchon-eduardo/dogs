@@ -5,6 +5,7 @@ export class Character{
         public game: String,
         public background: String,
         public description: String,
+        public backgroundKind: Array<JSON>,
         public acuity: Number,
         public body: Number,
         public heart: Number,

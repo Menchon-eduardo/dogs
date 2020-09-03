@@ -38,7 +38,7 @@ var controller = {
     },
     getBackgroundKinds: function(req, res) {
         BackgroundKind.find({}).exec((err, backgroundKind) => {
-            if(err) return res.status(500).send({message: "Error getting backgroundKind"});
+            if(err) return res.status(500).send({message: "Error getting backgroundKind",err});
             if(!backgroundKind) return res.status(404).send({message: "There is no backgroundKind", err});
             return res.status(200).send({backgroundKind});
         });

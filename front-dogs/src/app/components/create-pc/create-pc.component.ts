@@ -19,7 +19,12 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 export class CreatePCComponent implements OnInit {
   public character: Character
   public backgroundKind: BackgroundKind
-  public status: string;
+  public status: string
+  public name: String
+  public statusName: Boolean
+  public statsDice: Number
+  public treats: Array<JSON>
+
 
   constructor(
     private _gameService: GameService,
@@ -27,9 +32,15 @@ export class CreatePCComponent implements OnInit {
     private _backgroundKindService: BackgroundKindService,
     private _router: Router,
     private _route: ActivatedRoute
-  ) { }
+  ) {
+    this.character = new Character ('','','','','',[],0,0,0,0,[],[],[],'',true);
+   }
 
-  ngOnInit(): void {
+  ngOnInit()  {
+    this._route.params.subscribe((params: Params) =>{
+      this.name = params.name;
+      if(this.name != ""){this.statusName=true}else{this.statusName=true};
+    });
   }
   getBackgroundKinds(){
     this._backgroundKindService.getBackgroundKinds().subscribe(
@@ -37,6 +48,7 @@ export class CreatePCComponent implements OnInit {
         if(response.backgroundKind){
           this.backgroundKind=response.backgroundKind;
           console.log(this.backgroundKind);
+ 
         }
       },
       error => {
@@ -44,6 +56,24 @@ export class CreatePCComponent implements OnInit {
       }
     
     )
+    
+  }
+  getBackgroundKind(backgroundKindId){
+    this._backgroundKindService.getBackgroundKind(backgroundKindId).subscribe(
+      response => {
+        if(response.backgroundKind){
+          this.backgroundKind=response.name;
+          console.log(this.backgroundKind);
+          this.statsDice=response.stats;
+          this.treats=response.treats;
+        }
+      },
+      error => {
+        console.log(<any>error);
+      }
+    
+    )
+    
   }
   onSubmit(form){
     console.log(this.character);

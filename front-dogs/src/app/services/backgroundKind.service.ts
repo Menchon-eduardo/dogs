@@ -8,6 +8,7 @@ import { Global } from './global';
 @Injectable()
 export class BackgroundKindService{
     public url: string;
+    
 
     constructor(
         private _http: HttpClient
@@ -19,8 +20,8 @@ export class BackgroundKindService{
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
         return this._http.get(this.url+'backgrounds', {headers: headers});
     }
-    getBackgroundKind(backgroundName): Observable<any>{
+    getBackgroundKind(backgroundId): Observable<any>{
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
-        return this._http.get(this.url+'character'+backgroundName, {headers: headers});
+        return this._http.get(this.url+'background'+backgroundId, {headers: headers});
     }
 }
