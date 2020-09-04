@@ -8,6 +8,7 @@ import { CharacterService } from '../../services/character.service';
 import { BackgroundKindService } from '../../services/backgroundKind.service';
 
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { stringify } from '@angular/compiler/src/util';
 
 
 @Component({
@@ -18,12 +19,14 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 })
 export class CreatePCComponent implements OnInit {
   public character: Character
-  public backgroundKind: BackgroundKind
+  public backgroundKindo: String
   public status: string
   public name: String
   public statusName: Boolean
-  public statsDice: Number
-  public treats: Array<JSON>
+  public backgroundKind: BackgroundKind
+  public treats: Array<Number>
+  public relationships: Array<Number>
+  public backgroundKindName: String
 
 
   constructor(
@@ -34,6 +37,7 @@ export class CreatePCComponent implements OnInit {
     private _route: ActivatedRoute
   ) {
     this.character = new Character ('','','','','',[],0,0,0,0,[],[],[],'',true);
+  
    }
 
   ngOnInit()  {
@@ -41,6 +45,8 @@ export class CreatePCComponent implements OnInit {
       this.name = params.name;
       if(this.name != ""){this.statusName=true}else{this.statusName=true};
     });
+    
+    
   }
   getBackgroundKinds(){
     this._backgroundKindService.getBackgroundKinds().subscribe(
@@ -58,15 +64,16 @@ export class CreatePCComponent implements OnInit {
     )
     
   }
-  getBackgroundKind(backgroundKindId){
-    this._backgroundKindService.getBackgroundKind(backgroundKindId).subscribe(
+  getBackgroundKind(name){
+    this._backgroundKindService.getBackgroundKind(name).subscribe(
       response => {
-        if(response.backgroundKind){
-          this.backgroundKind=response.name;
-          console.log(this.backgroundKind);
-          this.statsDice=response.stats;
-          this.treats=response.treats;
-        }
+        console.log(response);
+        this.backgroundKind = response.backgroundKind;
+        var backgroundKindShowNow = this.backgroundKind;
+        this.treats=backgroundKindShowNow.treats;
+        this.relationships=backgroundKindShowNow.relationships;
+        console.log(this.relationships);
+      
       },
       error => {
         console.log(<any>error);

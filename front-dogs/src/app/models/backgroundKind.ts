@@ -3,7 +3,7 @@ export class BackgroundKind{
         public _id: String,
         public name: String,
         public stats: Number,
-        public treats: Array<JSON>,
-        public relationships: Array<JSON>
+        public treats: Array<Number>,
+        public relationships: Array<Number>
     ){}
 }

@@ -9,7 +9,7 @@ var multipart = require('connect-multiparty');
 var multipartMiddleware = multipart({ uploadDir: './uploads'});
 
 router.post('/save-background', BackgroundKindController.saveBackgroundKind);
-router.get('/background', BackgroundKindController.getBackgroundKind);
+router.get('/background:name', BackgroundKindController.getBackgroundKind);
 router.get('/backgrounds', BackgroundKindController.getBackgroundKinds);
 
 

@@ -22,13 +22,13 @@ var controller = {
         });
     },
     getBackgroundKind: function(req, res){
-        var backgroundKindId= req.params.id;
+        var backgroundKindName= req.params.name;
 
-        if(backgroundKindId == null){
+        if(backgroundKindName == null){
             return res.status(404).send({message: "The backgroundKind doesn't exists", err});
         };
 
-        BackgroundKind.findById(backgroundKindId, (err, backgroundKind) => {
+        BackgroundKind.findOne({"name":backgroundKindName}, (err, backgroundKind) => {
             if(err) return res.status(500).send({message: "Error getting backgroundKind"});
             if(!backgroundKind) return res.status(404).send({message: "The backgroundKind doesn't exists", err});
             return res.status(200).send({

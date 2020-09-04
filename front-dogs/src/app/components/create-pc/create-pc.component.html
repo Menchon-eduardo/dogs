@@ -34,7 +34,7 @@
         <label for="backgroundKind">Select your background</label>
         <ul>
             <li>
-                <button (click)="getBackgroundKinds('5f4fa433bcc3c5148885305c')">Balanced</button>
+                <button (click)="getBackgroundKind('Balanced')">Balanced</button>
             </li>
         </ul>
 
@@ -46,11 +46,23 @@
           <option value="Complicated community">
           <option value="Strong community">
         </datalist>-->
-        <div>
+        <div class="backgroundKindShow" *ngIf= "backgroundKind.stats >= 0">
             <p>
-                You have {{statsDice}}d6 for asing to stats<br>
-                <!--You have {{treats.4dice}}d4, {{treats.6dice}}d6, {{treats.8dice}}d8 and {{treats.10dice}}d10 for asing to tour treats
-                --></p>
+                You have {{backgroundKind.stats}}d6 for asing to stats<br>
+                You have for your treats:
+                <ul>
+                    <li *ngIf="treats[0] != 0">{{treats[0]}}d4</li>
+                    <li *ngIf="treats[1] != 0">{{treats[1]}}d6</li>
+                    <li *ngIf="treats[2] != 0">{{treats[2]}}d8</li>
+                    <li *ngIf="treats[3] != 0">{{treats[3]}}d10</li> 
+                </ul>
+                And for your relatioships:
+                <ul>
+                    <li *ngIf="relatioships[0] != 0">{{relatioships[0]}}d4</li>
+                    <li *ngIf="relatioships[1] != 0">{{relatioships[1]}}d6</li>
+                    <li *ngIf="relatioships[2] != 0">{{relatioships[2]}}d8</li>
+                    <li *ngIf="relatioships[3] != 0">{{relatioships[3]}}d10</li> 
+                </ul>
         </div>
 
         
