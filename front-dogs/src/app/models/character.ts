@@ -11,8 +11,8 @@ export class Character{
         public heart: Number,
         public will: Number,
         public traits: Array<any>,
-        public relationships: Array<JSON>,
-        public belongings: Array<JSON>,
+        public relationships: Array<any>,
+        public belongings: Array<any>,
         public img: String,
         public pc: Boolean
     ){}

@@ -44,6 +44,12 @@ export class CreatePCComponent implements OnInit {
 
   //relationsiphs
   public relationships: Array<Number>
+  public relationship1: Trait
+  public relationship2: Trait
+  public relationship3: Trait
+  public relationship4: Trait
+  public relationship5: Trait
+  public relationshipCharacter: Array<any>
   
 
 
@@ -60,6 +66,11 @@ export class CreatePCComponent implements OnInit {
     this.trait3 = new Trait ("","",0,"");
     this.trait4 = new Trait ("","",0,"");
     this.trait5 = new Trait ("","",0,"");
+    this.relationship1 = new Trait ("","",0,"");
+    this.relationship2 = new Trait ("","",0,"");
+    this.relationship3 = new Trait ("","",0,"");
+    this.relationship4 = new Trait ("","",0,"");
+    this.relationship5 = new Trait ("","",0,"");
    }
 
   ngOnInit()  {
@@ -134,6 +145,29 @@ export class CreatePCComponent implements OnInit {
 
 
   }
+  createRelationship(){
+    console.log(this.relationship1, this.relationship2, this.relationship3, this.relationship4, this.relationship5);
+    if(this.relationship1){
+      this.character.relationships.push(this.relationship1);
+    }if(this.relationship2){
+      this.character.relationships.push(this.relationship2);
+    }if(this.relationship3){
+      this.character.relationships.push(this.relationship3);
+    }if(this.relationship4){
+      this.character.relationships.push(this.relationship4);
+    }if(this.relationship5){
+      this.character.relationships.push(this.relationship5);
+    }else{
+      console.log("There is no relationships")
+    };
+  
+    
+    console.log(this.character.relationships);
+    this.relationshipCharacter = this.character.relationships;
+
+
+
+  }
   onSubmit(form){
     console.log(this.character);
     //Save data
@@ -141,7 +175,7 @@ export class CreatePCComponent implements OnInit {
       response => {
         if(response){
           this.status = "success";
-          this._router.navigate(['/create-pc']);
+          this._router.navigate(['/save-character']);
 
         }else{
           this.status = "failed";

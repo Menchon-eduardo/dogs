@@ -189,45 +189,108 @@
                          
                         </div>
               
-                </div>
-                    <!--<strong>And for your relationships:</strong>
-                    <h4 ><span *ngIf = "relationships[0] > 0" class="badge badge-danger" id="badge-dice"> {{relationships[0]}}d4</span>
-                        <span *ngIf = "relationships[1] > 0" class="badge badge-danger" id="badge-dice"> {{relationships[1]}}d6</span>
-                        <span *ngIf = "relationships[2] > 0" class="badge badge-danger" id="badge-dice">{{relationships[2]}}d8</span>
-                        <span *ngIf = "relationships[3] > 0" class="badge badge-danger" id="badge-dice"> {{relationships[3]}}d10</span></h4>
-                         <table class="table">
-                            <thead class="thead-dark">
-                              <tr>
-                                <th scope="col">Name</th>
-                                <th scope="col">Value</th>
-                                <th scope="col">Dice</th>
-                                <th scope="col"> </th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                <th><input type="text" class="form-control" name="relationshipName" [(ngModel)]="relationship.name"></th>
-                                <td><input type="number" class="form-control" name="relationshipNumber" [(ngModel)]="relationship.number"></td>
-                               <td><select class="form-control">
-                                    <option name="treat-dice" value="d4"  [(ngModel)]="relationship.dice">d4</option>
-                                    <option  name="treat-dice" value="d6" [(ngModel)]="relationship.dice">d6</option>
-                                    <option  name="treat-dice" value="d8" [(ngModel)]="relationship.dice">d8</option>
-                                    <option  name="treat-dice" value="d10" [(ngModel)]="relationship.dice">d10</option>
-                                  </select></td>
-                                <td><button class="btn btn-danger" name="new-relationship" (clik)="newRelationship()">Add new relationship</button></td>
-                              </tr>
-                            
-                            </tbody>
-                          </table>    -->
+               
+ 
                 
-
-            </div>
+ 
         <br> <br> <br>
-            
+                   <!--Relationships-->
+                   <strong>You have for your relationships:</strong>
+                   <h4 ><span class="badge badge-danger" id="badge-dice"> {{relationships[0]}}d4</span>
+                   <span  class="badge badge-danger" id="badge-dice"> {{relationships[1]}}d6</span>
+                   <span  class="badge badge-danger" id="badge-dice">{{relationships[2]}}d8</span>
+                   <span  class="badge badge-danger" id="badge-dice"> {{relationships[3]}}d10</span></h4>
+           
+
+             <!--Write the relationship-->     
+                   <table class="table">
+                       <thead class="thead-dark">
+                         <tr>
+                           <th scope="col">Name</th>
+                           <th scope="col">Value</th>
+                           <th scope="col">Dice</th>
+                           <th scope="col"> </th>
+                         </tr>
+                       </thead>
+                      <tbody>
+                         <tr>
+                           <th><input type="text" class="form-control" name="relationshipName" [(ngModel)]=relationship1.name></th>
+                           <td><input type="number" class="form-control" name="relationshipNumber" [(ngModel)]="relationship1.number"></td>
+                           <td>d4 <input type="radio" value="d4" class="btn btn-danger rounded-circle"  name="relationshipDice1" [(ngModel)]='relationship1.dice'>
+                       d6 <input type="radio" value="d6" class="btn btn-danger rounded-circle"   name="relationshipDice1" [(ngModel)]='relationship1.dice'>
+                       d8 <input type="radio" value="d8" class="btn btn-danger rounded-circle"  name="relationshipDice1" [(ngModel)]='relationship1.dice'>
+                       d10 <input type="radio" value="d10" class="btn btn-danger rounded-circle"  name="relationshipDice1" [(ngModel)]='relationship1.dice'>
+                           </td>
+                           
+                         </tr>
+                       </tbody>
+                       <tbody>
+                         <tr>
+                           <th><input type="text" class="form-control" name="relationshiptName" [(ngModel)]="relationship2.name"></th>
+                           <td><input type="number" class="form-control" name="relationshipNumber" [(ngModel)]="relationship2.number"></td>
+                           <td>d4 <input type="radio" value="d4" class="btn btn-danger rounded-circle"  name="traitDice2" [(ngModel)]='relationship2.dice'>
+                       d6 <input type="radio" value="d6" class="btn btn-danger rounded-circle"   name="relationshipDice2" [(ngModel)]='relationship2.dice'>
+                       d8 <input type="radio" value="d8" class="btn btn-danger rounded-circle" name="relationshipDice2" [(ngModel)]='relationship2.dice'>
+                       d10 <input type="radio" value="d10" class="btn btn-danger rounded-circle"  name="relationshipDice2" [(ngModel)]='relationship2.dice'>
+                           </td>
+                           
+                         </tr>
+                       </tbody>
+                       <tbody>
+                         <tr>
+                           <th><input type="text" class="form-control" name="relationshipName" [(ngModel)]="relationship3.name"></th>
+                           <td><input type="number" class="form-control" name="relationshipNumber" [(ngModel)]="relationship3.number"></td>
+                           <td>d4 <input type="radio" value="d4" class="btn btn-danger rounded-circle"  name="relationshipDice3" [(ngModel)]='relationship3.dice'>
+                       d6 <input type="radio" value="d6" class="btn btn-danger rounded-circle"   name="relationshipDice3" [(ngModel)]='relationship3.dice'>
+                       d8 <input type="radio" value="d8" class="btn btn-danger rounded-circle"  name="relationshipDice3" [(ngModel)]='relationship3.dice'>
+                       d10 <input type="radio" value="d10" class="btn btn-danger rounded-circle"  name="relationshipDice3" [(ngModel)]='relationship3.dice'>
+                           </td>
+                           
+                         </tr>
+                       </tbody>
+                       <tbody>
+                         <tr>
+                           <th><input type="text" class="form-control" name="relationshiptName" [(ngModel)]="relationship4.name"></th>
+                           <td><input type="number" class="form-control" name="relationshipNumber" [(ngModel)]="relationship4.number"></td>
+                           <td>d4 <input type="radio" value="d4" class="btn btn-danger rounded-circle"  name="traitDice4" [(ngModel)]='relationship4.dice'>
+                       d6 <input type="radio" value="d6" class="btn btn-danger rounded-circle"   name="relationshipDice4" [(ngModel)]='relationship4.dice'>
+                       d8 <input type="radio" value="d8" class="btn btn-danger rounded-circle"  name="relationshipDice4" [(ngModel)]='relationship4.dice'>
+                       d10 <input type="radio" value="d10" class="btn btn-danger rounded-circle"  name="relationshipice4" [(ngModel)]='relationship4.dice'>
+                           </td>
+                           
+                         </tr>
+                       </tbody>
+                       <tbody>
+                         <tr>
+                           <th><input type="text" class="form-control" name="relationshipName" [(ngModel)]="relationship5.name"></th>
+                           <td><input type="number" class="form-control" name="relationshipNumber" [(ngModel)]="relationship5.number"></td>
+                           <td>d4 <input type="radio" value="d4" class="btn btn-danger rounded-circle" name="relationshipDice5" [(ngModel)]='relationship5.dice'>
+                       d6 <input type="radio" value="d6" class="btn btn-danger rounded-circle"   name="relationshipDice5" [(ngModel)]='relationship5.dice'>
+                       d8 <input type="radio" value="d8" class="btn btn-danger rounded-circle"  name="relationshipDice5" [(ngModel)]='relationship5.dice'>
+                       d10 <input type="radio" value="d10" class="btn btn-danger rounded-circle"  name="relationshipDice5" [(ngModel)]='relationship5.dice'>
+                           </td>
+                           
+                         </tr>
+                       </tbody>
+                       
+                     </table>
+                      <button class="btn btn-danger" name="new-relationship" (click)="createRelationship()">Confirm relationships</button>
+                     
+                      
+                     <br>
+                     <div class="list-group">
+                       <div  class="list-group-item list-group-item-action" *ngFor="let relationship of relationshipCharacter">
+                         <div class="d-flex w-100 justify-content-between">
+                           <h3 class="mb-1">{{relationship.name}}: {{relationship.number}}{{relationship.dice}}</h3>
+                         </div>
+                        
+                       </div>
+             
+               </div>
+         
         
-        
-            <input type="submit" value="Create" (ngSubmit)= "onSubmit(PCForm)" />
+            <input type="submit" value="Create" (click)= "onSubmit(PCForm)" />
 
         </div>
-    </form>
+    
 </div>
