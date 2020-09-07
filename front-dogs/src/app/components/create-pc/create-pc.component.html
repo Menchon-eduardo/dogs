@@ -1,8 +1,10 @@
+
+
 <div  class="container">
 
     <h2>New PC</h2>
     
-
+<!--Span for character creation-->
     <div class= "message success" *ngIf="status == 'success'">
         The character has been created successfully
     </div>
@@ -10,7 +12,7 @@
         The character hasn't been created 
     </div>
 
-
+<!--Name and description-->
     <form #PCForm="ngForm" >
         <div class="form-group">
             <label for="name">Name</label>
@@ -32,6 +34,8 @@
         <div class="form-group">
             <label for="img">Image</label>
         </div>
+
+        <!--Select background-->
         <div class="form-group">
             <label for="backgroundKind">Select your background</label>
             <br>
@@ -46,7 +50,7 @@
                 
                 
             </div>
-        
+    <!--Assign stats-->
             <div class="backgroundKindShow" *ngIf= "backgroundKind.stats >= 0">
                 <p>
                     <div class="statsAssing">
@@ -91,14 +95,17 @@
                             That's OK!
                           </div>
                     </div>
+                  
                     <br>
+     <!--Traits-->
                     <strong>You have for your traits:</strong>
-                    <h4 ><span *ngIf = "treats[0] > 0" class="badge badge-danger" id="badge-dice"> {{treats[0]}}d4</span>
-                    <span *ngIf = "treats[1] > 0" class="badge badge-danger" id="badge-dice"> {{treats[1]}}d6</span>
-                    <span *ngIf = "treats[2] > 0" class="badge badge-danger" id="badge-dice">{{treats[2]}}d8</span>
-                    <span *ngIf = "treats[3] > 0" class="badge badge-danger" id="badge-dice"> {{treats[3]}}d10</span></h4>
-                    
+                    <h4 ><span class="badge badge-danger" id="badge-dice"> {{traits[0]}}d4</span>
+                    <span  class="badge badge-danger" id="badge-dice"> {{traits[1]}}d6</span>
+                    <span  class="badge badge-danger" id="badge-dice">{{traits[2]}}d8</span>
+                    <span  class="badge badge-danger" id="badge-dice"> {{traits[3]}}d10</span></h4>
+            
 
+              <!--Write the trait-->     
                     <table class="table">
                         <thead class="thead-dark">
                           <tr>
@@ -108,23 +115,82 @@
                             <th scope="col"> </th>
                           </tr>
                         </thead>
+                       <tbody>
+                          <tr>
+                            <th><input type="text" class="form-control" name="traitName" [(ngModel)]="trait1.name"></th>
+                            <td><input type="number" class="form-control" name="traitNumber" [(ngModel)]="trait1.number"></td>
+                            <td>d4 <input type="radio" value="d4" class="btn btn-danger rounded-circle"  name="traitDice1" [(ngModel)]='trait1.dice'>
+                        d6 <input type="radio" value="d6" class="btn btn-danger rounded-circle"   name="traitDice1" [(ngModel)]='trait1.dice'>
+                        d8 <input type="radio" value="d8" class="btn btn-danger rounded-circle"  name="traitDice1" [(ngModel)]='trait1.dice'>
+                        d10 <input type="radio" value="d10" class="btn btn-danger rounded-circle"  name="traitDice1" [(ngModel)]='trait1.dice'>
+                            </td>
+                            
+                          </tr>
+                        </tbody>
                         <tbody>
                           <tr>
-                            <th><input type="text" class="form-control" name="treatName" [(ngModel)]="trait.name"></th>
-                            <td><input type="number" class="form-control" name="treatNumber" [(ngModel)]="trait.number"></td>
-                            <td><select class="form-control">
-                                <option value="d4" name="trait-dice" [(ngModel)]="trait.dice">d4</option>
-                                <option value="d6" name="trait-dice" [(ngModel)]="trait.dice">d6</option>
-                                <option value="d8" name="trait-dice" [(ngModel)]="trait.dice">d8</option>
-                                <option value="d10" name="trait-dice" [(ngModel)]="trait.dice">d10</option>
-                              </select></td>
-                            <td><button class="btn btn-danger" name="new-treat" (clik)="newTreat()">Add new trait</button></td>
+                            <th><input type="text" class="form-control" name="traitName" [(ngModel)]="trait2.name"></th>
+                            <td><input type="number" class="form-control" name="traitNumber" [(ngModel)]="trait2.number"></td>
+                            <td>d4 <input type="radio" value="d4" class="btn btn-danger rounded-circle"  name="traitDice2" [(ngModel)]='trait2.dice'>
+                        d6 <input type="radio" value="d6" class="btn btn-danger rounded-circle"   name="traitDice2" [(ngModel)]='trait2.dice'>
+                        d8 <input type="radio" value="d8" class="btn btn-danger rounded-circle" name="traitDice2" [(ngModel)]='trait2.dice'>
+                        d10 <input type="radio" value="d10" class="btn btn-danger rounded-circle"  name="traitDice2" [(ngModel)]='trait2.dice'>
+                            </td>
+                            
                           </tr>
-                        
                         </tbody>
-                      </table>
+                        <tbody>
+                          <tr>
+                            <th><input type="text" class="form-control" name="traitName" [(ngModel)]="trait3.name"></th>
+                            <td><input type="number" class="form-control" name="traitNumber" [(ngModel)]="trait3.number"></td>
+                            <td>d4 <input type="radio" value="d4" class="btn btn-danger rounded-circle"  name="traitDice3" [(ngModel)]='trait3.dice'>
+                        d6 <input type="radio" value="d6" class="btn btn-danger rounded-circle"   name="traitDice3" [(ngModel)]='trait3.dice'>
+                        d8 <input type="radio" value="d8" class="btn btn-danger rounded-circle"  name="traitDice3" [(ngModel)]='trait3.dice'>
+                        d10 <input type="radio" value="d10" class="btn btn-danger rounded-circle"  name="traitDice3" [(ngModel)]='trait3.dice'>
+                            </td>
+                            
+                          </tr>
+                        </tbody>
+                        <tbody>
+                          <tr>
+                            <th><input type="text" class="form-control" name="traitName" [(ngModel)]="trait4.name"></th>
+                            <td><input type="number" class="form-control" name="traitNumber" [(ngModel)]="trait4.number"></td>
+                            <td>d4 <input type="radio" value="d4" class="btn btn-danger rounded-circle"  name="traitDice4" [(ngModel)]='trait4.dice'>
+                        d6 <input type="radio" value="d6" class="btn btn-danger rounded-circle"   name="traitDice4" [(ngModel)]='trait4.dice'>
+                        d8 <input type="radio" value="d8" class="btn btn-danger rounded-circle"  name="traitDice4" [(ngModel)]='trait4.dice'>
+                        d10 <input type="radio" value="d10" class="btn btn-danger rounded-circle"  name="traitDice4" [(ngModel)]='trait4.dice'>
+                            </td>
+                            
+                          </tr>
+                        </tbody>
+                        <tbody>
+                          <tr>
+                            <th><input type="text" class="form-control" name="traitName" [(ngModel)]="trait5.name"></th>
+                            <td><input type="number" class="form-control" name="traitNumber" [(ngModel)]="trait5.number"></td>
+                            <td>d4 <input type="radio" value="d4" class="btn btn-danger rounded-circle" name="traitDice5" [(ngModel)]='trait5.dice'>
+                        d6 <input type="radio" value="d6" class="btn btn-danger rounded-circle"   name="traitDice5" [(ngModel)]='trait5.dice'>
+                        d8 <input type="radio" value="d8" class="btn btn-danger rounded-circle"  name="traitDice5" [(ngModel)]='trait5.dice'>
+                        d10 <input type="radio" value="d10" class="btn btn-danger rounded-circle"  name="traitDice5" [(ngModel)]='trait5.dice'>
+                            </td>
+                            
+                          </tr>
+                        </tbody>
                         
-                    <strong>And for your relationships:</strong>
+                      </table>
+                       <button class="btn btn-danger" name="new-treat" (click)="createTrait()">Confirm traits</button>
+                      
+                       
+                      <br>
+                      <div class="list-group">
+                        <div  class="list-group-item list-group-item-action" *ngFor="let trait of traitCharacter">
+                          <div class="d-flex w-100 justify-content-between">
+                            <h3 class="mb-1">{{trait.name}}: {{trait.number}}{{trait.dice}}</h3>
+                          </div>
+                         
+                        </div>
+              
+                </div>
+                    <!--<strong>And for your relationships:</strong>
                     <h4 ><span *ngIf = "relationships[0] > 0" class="badge badge-danger" id="badge-dice"> {{relationships[0]}}d4</span>
                         <span *ngIf = "relationships[1] > 0" class="badge badge-danger" id="badge-dice"> {{relationships[1]}}d6</span>
                         <span *ngIf = "relationships[2] > 0" class="badge badge-danger" id="badge-dice">{{relationships[2]}}d8</span>
@@ -152,7 +218,7 @@
                               </tr>
                             
                             </tbody>
-                          </table>    
+                          </table>    -->
                 
 
             </div>

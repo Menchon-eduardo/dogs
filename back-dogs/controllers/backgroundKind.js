@@ -10,7 +10,7 @@ var controller = {
         var params= req.body;
         backgroundKind.name = params.name;
         backgroundKind.stats = params.stats;
-        backgroundKind.treats = params.treats;
+        backgroundKind.teaits = params.traits;
         backgroundKind.relationships = params.relationships;
         
         

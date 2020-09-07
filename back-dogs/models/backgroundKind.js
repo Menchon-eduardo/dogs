@@ -5,7 +5,7 @@ var Schema = mongoose.Schema;
 var BackgroundKindSchema = Schema ({
     name: String,
     stats: Number,
-    treats: Array,
+    traits: Array,
     relationships: Array
 });
 

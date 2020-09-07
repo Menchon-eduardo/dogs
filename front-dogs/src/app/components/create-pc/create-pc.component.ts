@@ -12,11 +12,12 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { stringify } from '@angular/compiler/src/util';
 
 
+
 @Component({
   selector: 'app-create-pc',
   templateUrl: './create-pc.component.html',
   styleUrls: ['./create-pc.component.css'],
-  providers: [GameService, CharacterService, BackgroundKindService]
+  providers: [GameService, CharacterService, BackgroundKindService,]
 })
 export class CreatePCComponent implements OnInit {
   public character: Character
@@ -24,14 +25,23 @@ export class CreatePCComponent implements OnInit {
   public status: string
   public name: String
   public statusName: Boolean
-  @Input() gameCharacter: String
+ 
   //backgrounds
   public backgroundKind: BackgroundKind
   public backgroundKindName: String
   //traits
-  public treats: Array<Number>
-  public trait: Trait
-  public traits: Array<Trait>
+  public traits: Array<Number>
+  public trait1: Trait
+  public trait2: Trait
+  public trait3: Trait
+  public trait4: Trait
+  public trait5: Trait
+  public traitCharacter: Array<any>
+  public traitd4: any
+  public traitd6: any
+  public traitd8: any
+  public traitd10: any
+
   //relationsiphs
   public relationships: Array<Number>
   
@@ -44,14 +54,24 @@ export class CreatePCComponent implements OnInit {
     private _router: Router,
     private _route: ActivatedRoute
   ) {
-    this.character = new Character ('','',this.gameCharacter,'','',[],0,0,0,0,[],[],[],'',true);
-    this.trait = new Trait ("","",0,"");
+    this.character = new Character ('','','','','',[],0,0,0,0,[],[],[],'',true);
+    this.trait1 = new Trait ("","",0,"");
+    this.trait2 = new Trait ("","",0,"");
+    this.trait3 = new Trait ("","",0,"");
+    this.trait4 = new Trait ("","",0,"");
+    this.trait5 = new Trait ("","",0,"");
    }
 
   ngOnInit()  {
     this._route.params.subscribe((params: Params) =>{
       this.name = params.name;
       if(this.name != ""){this.statusName=true}else{this.statusName=true};
+      this.traitd4 = 0;
+      this.traitd6 = 0;
+      this.traitd8 = 0;
+      this.traitd10 = 0;
+      
+
     });
     
     
@@ -78,9 +98,10 @@ export class CreatePCComponent implements OnInit {
         console.log(response);
         this.backgroundKind = response.backgroundKind;
         var backgroundKindShowNow = this.backgroundKind;
-        this.treats=backgroundKindShowNow.treats;
+        this.traits=backgroundKindShowNow.traits;
         this.relationships=backgroundKindShowNow.relationships;
-        console.log(this.relationships);
+        console.log("relatioships", this.relationships);
+        console.log("traits", this.traits);
       
       },
       error => {
@@ -91,9 +112,24 @@ export class CreatePCComponent implements OnInit {
     
   }
   createTrait(){
-    console.log(this.trait);
-    this.traits.push(this. trait);
-    console.log(this.traits)
+    console.log(this.trait1, this.trait2, this.trait3, this.trait4, this.trait5);
+    if(this.trait1){
+      this.character.traits.push(this.trait1);
+    }if(this.trait2){
+      this.character.traits.push(this.trait2);
+    }if(this.trait3){
+      this.character.traits.push(this.trait3);
+    }if(this.trait4){
+      this.character.traits.push(this.trait4);
+    }if(this.trait5){
+      this.character.traits.push(this.trait5);
+    }else{
+      console.log("There is no traits")
+    };
+  
+    
+    console.log(this.character.traits);
+    this.traitCharacter = this.character.traits;
 
 
 
