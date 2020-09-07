@@ -14,6 +14,7 @@ import { ListPCComponent } from './components/list-pc/list-pc.component';
 import { CreatePCComponent } from './components/create-pc/create-pc.component';
 import { ListNPCComponent } from './components/list-npc/list-npc.component';
 import { CreateNPCComponent } from './components/create-npc/create-npc.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 
@@ -28,6 +29,7 @@ import { CreateNPCComponent } from './components/create-npc/create-npc.component
     CreatePCComponent,
     ListNPCComponent,
     CreateNPCComponent,
+    LoginComponent,
 
 
   ],

@@ -10,7 +10,7 @@ export class Character{
         public body: Number,
         public heart: Number,
         public will: Number,
-        public traits: Array<JSON>,
+        public traits: Array<any>,
         public relationships: Array<JSON>,
         public belongings: Array<JSON>,
         public img: String,

@@ -10,6 +10,7 @@ var app = express();
 var game_routes = require('./routes/game');
 var character_routes = require('./routes/character');
 var backgroundKind_routes = require('./routes/backgroundKind');
+var user_routes =require ('./routes/user');
 //middlewares
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
@@ -26,6 +27,7 @@ app.use((req, res, next) => {
 app.use(game_routes);
 app.use(character_routes);
 app.use(backgroundKind_routes);
+app.use(user_routes)
 
 //exportar
 module.exports = app;

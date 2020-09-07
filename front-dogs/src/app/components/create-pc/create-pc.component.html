@@ -1,72 +1,167 @@
-<h2>New PC</h2>
-<h4 *ngIf="statusName == true">{{name}}</h4>
+<div  class="container">
 
-<div class= "message success" *ngIf="status == 'success'">
-    The character has been created successfully
-</div>
-<div class= "message failed" *ngIf="status == 'failed'">
-    The character hasn't been created 
-</div>
-
-
-<form #PCForm="ngForm" >
-    <p>
-        <label for="name">Name</label>
-        <input type="text" name="name" #name="ngModel" [(ngModel)]="character.name"required/>
-        <span class="form_error" *ngIf="name.touched && !name.valid">
-            The character needs a name
-        </span>
-    </p>
-    <p>
-        <label for="background">Write a background for your character</label>
-        <textarea  name="background" #background="ngModel" [(ngModel)]="character.background"></textarea>
-        
-    </p>
-    <p>
-        <label for="description">Describe your character</label>
-        <textarea  name="description" #description="ngModel" [(ngModel)]="character.description"></textarea>
-        
-    </p>
-    <p>
-        <label for="img">Image</label>
-    </p>
-    <p>
-        <label for="backgroundKind">Select your background</label>
-        <ul>
-            <li>
-                <button (click)="getBackgroundKind('Balanced')">Balanced</button>
-            </li>
-        </ul>
-
-        <!--<input list="backgroundKind" name="backgroundKind" #backgroundKind="ngModel" [(ngModel)]="character.backgroundKind" (click)="getBackgroundKind(5f4fa433bcc3c5148885305c)">
-        <datalist id="backgroundKind">
-          <option value="Balanced">
-          <option value="Complicated story" >
-          <option value="Relevant story">
-          <option value="Complicated community">
-          <option value="Strong community">
-        </datalist>-->
-        <div class="backgroundKindShow" *ngIf= "backgroundKind.stats >= 0">
-            <p>
-                You have {{backgroundKind.stats}}d6 for asing to stats<br>
-                You have for your treats:
-                <ul>
-                    <li *ngIf="treats[0] != 0">{{treats[0]}}d4</li>
-                    <li *ngIf="treats[1] != 0">{{treats[1]}}d6</li>
-                    <li *ngIf="treats[2] != 0">{{treats[2]}}d8</li>
-                    <li *ngIf="treats[3] != 0">{{treats[3]}}d10</li> 
-                </ul>
-                And for your relatioships:
-                <ul>
-                    <li *ngIf="relatioships[0] != 0">{{relatioships[0]}}d4</li>
-                    <li *ngIf="relatioships[1] != 0">{{relatioships[1]}}d6</li>
-                    <li *ngIf="relatioships[2] != 0">{{relatioships[2]}}d8</li>
-                    <li *ngIf="relatioships[3] != 0">{{relatioships[3]}}d10</li> 
-                </ul>
-        </div>
-
-        
+    <h2>New PC</h2>
     
-    <input type="submit" value="Create" (ngSubmit)= "onSubmit(PCForm)" />
 
-</form>
+    <div class= "message success" *ngIf="status == 'success'">
+        The character has been created successfully
+    </div>
+    <div class= "message failed" *ngIf="status == 'failed'">
+        The character hasn't been created 
+    </div>
+
+
+    <form #PCForm="ngForm" >
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" name="name" #name="ngModel" [(ngModel)]="character.name"required/>
+            <span class="form_error" *ngIf="name.touched && !name.valid">
+                The character needs a name
+            </span>
+        </div>
+        <div class="form-group">
+            <label for="background">Write a background for your character</label>
+            <textarea  name="background" class="form-control" #background="ngModel" [(ngModel)]="character.background"></textarea>
+            
+        </div>
+        <div class="form-group">
+            <label for="description">Describe your character</label>
+            <textarea  name="description" class="form-control" #description="ngModel" [(ngModel)]="character.description"></textarea>
+            
+        </div>
+        <div class="form-group">
+            <label for="img">Image</label>
+        </div>
+        <div class="form-group">
+            <label for="backgroundKind">Select your background</label>
+            <br>
+            <div class="btn-group">
+                
+                
+                    <button class="btn btn-danger" (click)="getBackgroundKind('Balanced')">Balanced</button>
+                    <button class="btn btn-danger" (click)="getBackgroundKind('Complicated story')">Complicated story</button>
+                    <button class="btn btn-danger" (click)="getBackgroundKind('Relevant story')">Relevant story</button>
+                    <button class="btn btn-danger" (click)="getBackgroundKind('Complicated community')">Complicated community</button>
+                    <button class="btn btn-danger" (click)="getBackgroundKind('Strong community')">Strong community</button>
+                
+                
+            </div>
+        
+            <div class="backgroundKindShow" *ngIf= "backgroundKind.stats >= 0">
+                <p>
+                    <div class="statsAssing">
+                        <span *ngIf=" character.acuity + character.body + character.heart + character.will != backgroundKind.stats">
+                            You have to assing {{backgroundKind.stats}}d6 for yours stats
+                        </span>
+                        <table class="table table-striped" id="tableStats">
+                            <thead class="thead-dark">
+                              <tr>
+                                <th scope="col">Stat</th>
+                                <th scope="col">Value</th>
+                                <th scope="col">{{backgroundKind.stats-(character.acuity + character.body + character.heart + character.will)}}d6</th>
+                         
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <th scope="row">Acuity</th>
+                                <td><input type="Number"  name="statsAssing" [(ngModel)]="character.acuity">d6</td>
+                                
+                                
+                              </tr>
+                              <tr>
+                                <th scope="row">Body</th>
+                                <td><input type="Number"  name="statsAssing" [(ngModel)]="character.body">d6</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">Heart</th>
+                                <td><input type="Number"  name="statsAssing" [(ngModel)]="character.heart">d6</td>
+                                
+                              </tr>
+                              <tr>
+                                <th scope="row">Will</th>
+                                <td><input type="Number" name="statsAssing" [(ngModel)]="character.will">d6</td>
+                                
+                              </tr>
+                            </tbody>
+                          </table>
+
+                      
+                        <div class="alert alert-danger" role="alert" *ngIf=" character.acuity + character.body + character.heart + character.will == backgroundKind.stats">
+                            That's OK!
+                          </div>
+                    </div>
+                    <br>
+                    <strong>You have for your traits:</strong>
+                    <h4 ><span *ngIf = "treats[0] > 0" class="badge badge-danger" id="badge-dice"> {{treats[0]}}d4</span>
+                    <span *ngIf = "treats[1] > 0" class="badge badge-danger" id="badge-dice"> {{treats[1]}}d6</span>
+                    <span *ngIf = "treats[2] > 0" class="badge badge-danger" id="badge-dice">{{treats[2]}}d8</span>
+                    <span *ngIf = "treats[3] > 0" class="badge badge-danger" id="badge-dice"> {{treats[3]}}d10</span></h4>
+                    
+
+                    <table class="table">
+                        <thead class="thead-dark">
+                          <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Value</th>
+                            <th scope="col">Dice</th>
+                            <th scope="col"> </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th><input type="text" class="form-control" name="treatName" [(ngModel)]="trait.name"></th>
+                            <td><input type="number" class="form-control" name="treatNumber" [(ngModel)]="trait.number"></td>
+                            <td><select class="form-control">
+                                <option value="d4" name="trait-dice" [(ngModel)]="trait.dice">d4</option>
+                                <option value="d6" name="trait-dice" [(ngModel)]="trait.dice">d6</option>
+                                <option value="d8" name="trait-dice" [(ngModel)]="trait.dice">d8</option>
+                                <option value="d10" name="trait-dice" [(ngModel)]="trait.dice">d10</option>
+                              </select></td>
+                            <td><button class="btn btn-danger" name="new-treat" (clik)="newTreat()">Add new trait</button></td>
+                          </tr>
+                        
+                        </tbody>
+                      </table>
+                        
+                    <strong>And for your relationships:</strong>
+                    <h4 ><span *ngIf = "relationships[0] > 0" class="badge badge-danger" id="badge-dice"> {{relationships[0]}}d4</span>
+                        <span *ngIf = "relationships[1] > 0" class="badge badge-danger" id="badge-dice"> {{relationships[1]}}d6</span>
+                        <span *ngIf = "relationships[2] > 0" class="badge badge-danger" id="badge-dice">{{relationships[2]}}d8</span>
+                        <span *ngIf = "relationships[3] > 0" class="badge badge-danger" id="badge-dice"> {{relationships[3]}}d10</span></h4>
+                         <table class="table">
+                            <thead class="thead-dark">
+                              <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Value</th>
+                                <th scope="col">Dice</th>
+                                <th scope="col"> </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <th><input type="text" class="form-control" name="relationshipName" [(ngModel)]="relationship.name"></th>
+                                <td><input type="number" class="form-control" name="relationshipNumber" [(ngModel)]="relationship.number"></td>
+                               <td><select class="form-control">
+                                    <option name="treat-dice" value="d4"  [(ngModel)]="relationship.dice">d4</option>
+                                    <option  name="treat-dice" value="d6" [(ngModel)]="relationship.dice">d6</option>
+                                    <option  name="treat-dice" value="d8" [(ngModel)]="relationship.dice">d8</option>
+                                    <option  name="treat-dice" value="d10" [(ngModel)]="relationship.dice">d10</option>
+                                  </select></td>
+                                <td><button class="btn btn-danger" name="new-relationship" (clik)="newRelationship()">Add new relationship</button></td>
+                              </tr>
+                            
+                            </tbody>
+                          </table>    
+                
+
+            </div>
+        <br> <br> <br>
+            
+        
+        
+            <input type="submit" value="Create" (ngSubmit)= "onSubmit(PCForm)" />
+
+        </div>
+    </form>
+</div>

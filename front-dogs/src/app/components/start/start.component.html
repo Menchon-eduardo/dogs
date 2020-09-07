@@ -1,17 +1,33 @@
 <div class=start>
-    <!--<h3>Start</h3>-->
-    <span class= "loadError" *ngIf= "status == 'failed'">The game doesn't exist</span>
-    <form >
-    <p>
-           <input type="button" [routerLink]="['/new-game']" [routerLinkActive]= "['actived']" value="New Game">
-       </p>
-       <p>
-           <label for="load-game">Load game</label>
-          <input type="text" [(ngModel)]="gameName" name="name" (keyup.enter)="checkGames(gameName)">
-  
-       </p>
-      
 
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="http://localhost:4200/start">Dogs in the Vineyard</a>
+        <a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a>
+        
+            
+     
+        <button class="btn btn-danger float-right" type="button" [routerLink]="['/new-game']" [routerLinkActive]= "['actived']">
+           New Game
+          </button>
+          <button class="btn btn-danger float-right" type="button" [routerLink]="['/']" [routerLinkActive]= "['actived']">
+            Log Out
+           </button>
+      </nav>
 
-    </form>
+    <div class="container">
+        <br>
+        <h2>Games</h2>
+    
+        <div class="list-group">
+            <a href="http://localhost:4200/list-pc" class="list-group-item list-group-item-action" *ngFor="let game of games">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">{{game.name}}</h5>
+                <small>{{game.numPlayers}} players</small>
+              </div>
+              <p class="mb-1">{{game.sinopsis}}</p>
+              <small>{{game.master}}</small>
+            </a>
+
+    </div>
 </div>
+<br>

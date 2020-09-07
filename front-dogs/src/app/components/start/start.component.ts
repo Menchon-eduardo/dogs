@@ -11,10 +11,11 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
   providers: [GameService]
 })
 export class StartComponent implements OnInit {
-public games: Game
+public games: Game []
 public gameName: String
 public game: any
 public status: String
+
 
 
   constructor(

@@ -1,0 +1,37 @@
+@font-face{
+	font-family: "eastwood";
+    src: url("./Eastwood.ttf");
+}
+
+body{
+    background: url("../assets/img/old paper.png");
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+    
+    
+}
+#logoDogs{
+    width: 25%;
+}
+.container-fluid{
+    width: 30%;
+    height: 100%;
+}
+#cenefa{
+    width: 20%;
+}
+
+#newGame{
+    width: 70%
+}
+#tableStats{
+    width: 40%;
+}
+#tableStats input{
+    width: 30%;
+}
+#badge-dice{
+    margin: 4px;
+    
+}
+

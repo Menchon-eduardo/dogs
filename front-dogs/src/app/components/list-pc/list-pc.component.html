@@ -1,1 +1,36 @@
-<p>list-pc works!</p>
+
+<div class=start>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="http://localhost:4200/start">Dogs in the Vineyard</a>
+      <a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a>
+      
+          
+   
+      <button class="btn btn-danger float-right" type="button" [routerLink]="['/start']" [routerLinkActive]= "['actived']">
+         Back
+        </button>
+        <button class="btn btn-danger float-right" type="button" [routerLink]="['/']" [routerLinkActive]= "['actived']">
+          Log Out
+         </button>
+    </nav>
+
+  <div class="container">
+      <br>
+      <h2>Characters</h2>
+  
+      <div class="list-group">
+          <a href="#" class="list-group-item list-group-item-action" *ngFor="let character of characters">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">{{character.name}}</h5>
+              
+            </div>
+            <p class="mb-1">{{character.description}}</p>
+            <hr>
+            <p class="mb-1">{{character.background}}</p>
+            
+          </a>
+
+  </div>
+</div>
+<br>

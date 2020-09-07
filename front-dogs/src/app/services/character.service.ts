@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Character } from '../models/character';
+import { Trait } from '../models/trait';
 import { Global } from './global';
 
 
@@ -24,10 +25,16 @@ export class CharacterService{
     }
     getCharacters(): Observable<any>{
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
-        return this._http.get(this.url+'games', {headers: headers});
+        return this._http.get(this.url+'characters', {headers: headers});
     }
     getCharacter(characterName): Observable<any>{
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
         return this._http.get(this.url+'character'+characterName, {headers: headers});
     }
+    saveTrait(trait:Trait): Observable<any>{
+        let params = JSON.stringify(trait);
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+        return this._http.post(this.url+'character'+'save-trait', params,{headers:headers});
+    }
+   
 }

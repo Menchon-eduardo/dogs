@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Character } from '../../models/character';
 import { Game } from '../../models/game';
 import { BackgroundKind } from '../../models/backgroundKind';
+import { Trait } from '../../models/trait';
 
 import { GameService } from '../../services/game.service';
 import { CharacterService } from '../../services/character.service';
@@ -23,10 +24,17 @@ export class CreatePCComponent implements OnInit {
   public status: string
   public name: String
   public statusName: Boolean
+  @Input() gameCharacter: String
+  //backgrounds
   public backgroundKind: BackgroundKind
-  public treats: Array<Number>
-  public relationships: Array<Number>
   public backgroundKindName: String
+  //traits
+  public treats: Array<Number>
+  public trait: Trait
+  public traits: Array<Trait>
+  //relationsiphs
+  public relationships: Array<Number>
+  
 
 
   constructor(
@@ -36,8 +44,8 @@ export class CreatePCComponent implements OnInit {
     private _router: Router,
     private _route: ActivatedRoute
   ) {
-    this.character = new Character ('','','','','',[],0,0,0,0,[],[],[],'',true);
-  
+    this.character = new Character ('','',this.gameCharacter,'','',[],0,0,0,0,[],[],[],'',true);
+    this.trait = new Trait ("","",0,"");
    }
 
   ngOnInit()  {
@@ -82,6 +90,14 @@ export class CreatePCComponent implements OnInit {
     )
     
   }
+  createTrait(){
+    console.log(this.trait);
+    this.traits.push(this. trait);
+    console.log(this.traits)
+
+
+
+  }
   onSubmit(form){
     console.log(this.character);
     //Save data
@@ -89,6 +105,7 @@ export class CreatePCComponent implements OnInit {
       response => {
         if(response){
           this.status = "success";
+          this._router.navigate(['/create-pc']);
 
         }else{
           this.status = "failed";
