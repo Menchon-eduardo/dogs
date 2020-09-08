@@ -5,8 +5,12 @@
       <a class="navbar-brand" href="http://localhost:4200/start">Dogs in the Vineyard</a>
       <a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a>
       
-          
-   
+      <button class="btn btn-danger float-right" type="button" [routerLink]="['/master-screen']" [routerLinkActive]= "['actived']">
+        Master Screen
+       </button>    
+      <button class="btn btn-danger float-right" type="button" [routerLink]="['/new-character']" [routerLinkActive]= "['actived']">
+        New Character
+       </button>
       <button class="btn btn-danger float-right" type="button" [routerLink]="['/start']" [routerLinkActive]= "['actived']">
          Back
         </button>
@@ -20,22 +24,23 @@
       <h2>Characters</h2>
   
       <div class="list-group">
-          <a href="#" class="list-group-item list-group-item-action" *ngFor="let character of characters">
+          <a  class="list-group-item list-group-item-action" *ngFor="let item of characters">
             <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1">{{character.name}}</h5>
+              <h5 class="mb-1" (click)="characterName = item.name">{{item.name}}</h5>
               
             </div>
-            <p class="mb-1">{{character.description}}</p>
+            <p class="mb-1">{{item.description}}</p>
             <hr>
-            <p class="mb-1">{{character.background}}</p>
+            <p class="mb-1">{{item.background}}</p>
             
             
           </a>
 
   </div>
 </div>
+
+
 <br>
-<div>
-  <app-create-pc></app-create-pc>
-</div>
+
+
 <br>

@@ -12,6 +12,8 @@ import { CharacterService } from '../../services/character.service';
 export class ListPCComponent implements OnInit {
   public games: Game[]
   public characters: Character[]
+  public characterName: String
+  public newCharacter: String
   
 
   constructor(
@@ -21,8 +23,8 @@ export class ListPCComponent implements OnInit {
 
   ngOnInit() {
     this.getCharacters();
-    console.log(this.characters);
-  }
+    
+      }
   getCharacters(){
     this._characterService.getCharacters().subscribe(
       response =>{

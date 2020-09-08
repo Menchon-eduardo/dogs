@@ -1,1 +1,64 @@
-<p>master-screen works!</p>
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="http://localhost:4200/start">Dogs in the Vineyard</a>
+    <a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a>
+    
+        
+    <button class="btn btn-danger float-right" type="button" [routerLink]="['/new-character']" [routerLinkActive]= "['actived']">
+      New Character
+     </button>
+    <button class="btn btn-danger float-right" type="button" [routerLink]="['/list-pc']" [routerLinkActive]= "['actived']">
+       Back
+      </button>
+      <button class="btn btn-danger float-right" type="button" [routerLink]="['/']" [routerLinkActive]= "['actived']">
+        Log Out
+       </button>
+  </nav>
+<br>
+  <div class=container >
+    <a  *ngFor="let item of characters">
+        <button class="btn btn-danger" (click)="getCharacter(item.name)">{{item.name}}</button></a>
+
+        <br>
+       
+        <ul class="list-group">
+            
+            <li class="list-group-item">{{characterSelected.description}}</li>
+            <li class="list-group-item">{{characterSelected.background}}</li>
+        </ul>
+        <br>
+        <table class="table" id="tableStats">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Stat</th>
+                <th scope="col">Dice</th>
+                </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Acuity</th>
+                <td>{{characterSelected.acuity}}d6</td>
+                <td><button class="btn btn-danger">Add</button></td>
+               
+              </tr>
+              <tr>
+                <th scope="row">Body</th>
+                <td>{{characterSelected.body}}d6</td>
+                <td><button class="btn btn-danger">Add</button></td>
+              </tr>
+              <tr>
+                <th scope="row">Heart</th>
+                <td>{{characterSelected.heart}}d6</td>
+                <td><button class="btn btn-danger">Add</button></td>
+              </tr>
+              <tr>
+                <th scope="row">Will</th>
+                <td>{{characterSelected.will}}d6</td>
+                <td><button class="btn btn-danger">Add</button></td>
+              </tr>
+            </tbody>
+          </table>
+          
+    </div>
+   

@@ -94,6 +94,8 @@ export class CreatePCComponent implements OnInit {
           this.backgroundKind=response.backgroundKind;
           console.log(this.backgroundKind);
  
+        }else{
+          console.log("There is no backgroundKinds yet");
         }
       },
       error => {

@@ -35,13 +35,13 @@ var controller = {
             message: "save character working"})
     },
     getCharacter: function(req, res){
-        var characterId= req.params.id;
+        var characterName= req.params.name;
 
-        if(characterId == null){
+        if(characterName == null){
             return res.status(404).send({message: "The charcter doesn't exists", err});
         };
 
-        Character.findById(characterId, (err, character) => {
+        Character.findOne({"name":characterName}, (err, character) => {
             if(err) return res.status(500).send({message: "Error getting character"});
             if(!character) return res.status(404).send({message: "The character doesn't exists", err});
             return res.status(200).send({
