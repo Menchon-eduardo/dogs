@@ -28,6 +28,7 @@
             <li class="list-group-item">{{characterSelected.background}}</li>
         </ul>
         <br>
+        <!--Stats-->
         <table class="table" id="tableStats">
             <thead class="thead-dark">
               <tr>
@@ -60,5 +61,47 @@
             </tbody>
           </table>
           
+
+          <!--Traits-->
+          <h2>Traits</h2>
+          <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Dice</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let yes of traits">
+                <th scope="row" *ngIf="yes.name != ''">{{yes.name}}</th>
+                <td *ngIf="yes.name != ''">{{yes.number}}{{yes.dice}}</td>
+                <td *ngIf="yes.name != ''"><button class="btn btn-danger">Add</button></td>
+              
+              </tr>
+              
+            </tbody>
+          </table>
+
+          <!--Relationships-->
+          <h2>Relationships</h2>
+          <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Dice</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let people of relationships">
+                <th scope="row" *ngIf="people.name != ''">{{people.name}}</th>
+                <td *ngIf="people.name != ''">{{people.number}}{{people.dice}}</td>
+                <td *ngIf="people.name != ''"><button class="btn btn-danger">Add</button></td>
+              
+              </tr>
+              
+            </tbody>
+          </table>
     </div>
-   
+

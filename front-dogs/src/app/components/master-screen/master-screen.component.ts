@@ -11,7 +11,9 @@ import { CharacterService } from '../../services/character.service';
 })
 export class MasterScreenComponent implements OnInit {
   public characterSelected: Character
-  public characters: Character []
+  public characters: Character 
+  public traits: Array <any>
+  public relationships: Array <any>
 
   constructor(
     private _characterService : CharacterService,
@@ -26,7 +28,9 @@ export class MasterScreenComponent implements OnInit {
       response => {
         console.log(response);
         this.characterSelected = response.character;
-
+        this.traits= response.character.traits;
+        this.relationships= response.character.relationships;
+        
       
       },
       error => {
@@ -43,6 +47,7 @@ export class MasterScreenComponent implements OnInit {
         if(response.character){
           this.characters = response.character;
           console.log(this.characters);
+
         }
       },
       error => {

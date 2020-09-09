@@ -22,6 +22,8 @@
     "bootstrap": "^4.5.2",
     "jquery": "^3.5.1",
     "rxjs": "~6.5.5",
+    "socket.io": "^2.3.0",
+    "soket.io": "0.0.1-security",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"
   },
