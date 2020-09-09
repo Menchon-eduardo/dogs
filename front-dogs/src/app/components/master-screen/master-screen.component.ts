@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Character } from '../../models/character';
+import { Dice } from '../../models/dice';
 
 import { CharacterService } from '../../services/character.service';
 
@@ -14,10 +15,17 @@ export class MasterScreenComponent implements OnInit {
   public characters: Character 
   public traits: Array <any>
   public relationships: Array <any>
+  public dice: Dice
+  public dice1: Dice
+  public statAdded: Array <any>
 
   constructor(
     private _characterService : CharacterService,
-  ) { }
+  ) {
+    this.dice= new Dice ("",0,"");
+    this.dice1= new Dice ("",0,"");
+    this.statAdded = []
+   }
 
   ngOnInit() {
     this.getCharacters();
@@ -56,4 +64,27 @@ export class MasterScreenComponent implements OnInit {
     
     )
   }
+  addDiceStat(name, number){
+    if(this.statAdded.length == 1){
+      var diceSelect1 = this.dice1;
+      diceSelect1.name= name;
+      diceSelect1.number= number;
+      diceSelect1.dice= "d6";
+      this.statAdded.push(diceSelect1);
+      console.log(this.statAdded);
+     }if(this.statAdded.length == 0){
+      var diceSelect = this.dice;
+      diceSelect.name= name;
+      diceSelect.number= number;
+      diceSelect.dice= "d6";
+      this.statAdded.push(diceSelect);
+      console.log(this.statAdded);
+   }else{
+     console.log("jajano");
+
+   }
+   
+
+  }
+  addDice(x,t,z){}
 }
