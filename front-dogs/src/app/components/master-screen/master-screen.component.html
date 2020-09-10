@@ -76,7 +76,7 @@
               <tr *ngFor="let yes of traits">
                 <th scope="row" *ngIf="yes.name != ''">{{yes.name}}</th>
                 <td *ngIf="yes.name != ''">{{yes.number}}{{yes.dice}}</td>
-                <td *ngIf="yes.name != ''"><button class="btn btn-danger" (click)="addDice(yes.name, yes.number, yes.dice)">Add</button></td>
+                <td *ngIf="yes.name != ''"><button class="btn btn-danger" (click)="addDiceTrait(yes.name, yes.number, yes.dice)">Add</button></td>
               
               </tr>
               
@@ -97,13 +97,14 @@
               <tr *ngFor="let people of relationships">
                 <th scope="row" *ngIf="people.name != ''">{{people.name}}</th>
                 <td *ngIf="people.name != ''">{{people.number}}{{people.dice}}</td>
-                <td *ngIf="people.name != ''"><button class="btn btn-danger" (click)="addDice(people.name, people.number, people.dice)">Add</button></td>
+                <td *ngIf="people.name != ''"><button class="btn btn-danger" (click)="addDiceRelationship(people.name, people.number, people.dice)">Add</button></td>
               
               </tr>
               
             </tbody>
           </table>
-          <app-play-screen [nombre]="characterSelected"></app-play-screen>
+          <input type="submit" (click)="onSubmit()" value="Send" >
+          <app-play-screen [statAdded]="statAdded" [traitsAdded]="traitsAdded" [relationshipsAdded]="relationshipsAdded" [diceAdded]= "diceAdded"></app-play-screen>
           
     </div>
 

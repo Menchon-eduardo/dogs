@@ -1,1 +1,18 @@
-<p>play-screen works! {{nombre.name}}</p>
+<p >play-screen works!</p>
+<br>
+<div id=screen>
+    <div *ngFor="let dice of diceAdded">
+    <button type="button" class="btn btn-light" id="dice"  name="dices" *ngIf= "dice.name != undefined" >
+        {{dice.name}} {{dice.number}}{{dice.dice}}
+    </button>
+    
+    </div>
+</div>
+<br>
+<button type="button" class="btn btn-danger" value="Roll" (click)="rollDice()">Roll</button>
+<div id=screen>
+    <p>{{result}}</p>
+</div>
+<br>
+<button (click)="getRndDice(6,'d6')"></button>
+<br>
