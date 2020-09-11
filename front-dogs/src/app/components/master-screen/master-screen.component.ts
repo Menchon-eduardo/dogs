@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Character } from '../../models/character';
 import { Dice } from '../../models/dice';
+import { Trait } from '../../models/trait';
 
 import { CharacterService } from '../../services/character.service';
 
@@ -13,7 +14,7 @@ import { CharacterService } from '../../services/character.service';
 export class MasterScreenComponent implements OnInit {
   public characterSelected: Character
   public characters: Character 
-  public traits: Array <any>
+  public traits: Array <Trait>
   public relationships: Array <any>
   public dice: Dice
   public dice1: Dice
@@ -40,8 +41,8 @@ export class MasterScreenComponent implements OnInit {
     this.dice6= new Dice ("",0,"");
     this.dice7= new Dice ("",0,"");
     this.statAdded = []
-    this.traitsAdded = [0,0,0];
-    this.relationshipsAdded = [0,0,0];
+    this.traitsAdded = [];
+    this.relationshipsAdded = [];
    }
 
   ngOnInit() {
@@ -102,29 +103,29 @@ export class MasterScreenComponent implements OnInit {
    }
   }
   addDiceTrait(name, number, dice){
-    var fill =this.traitsAdded.indexOf(0);
-    switch(fill){
+    
+    switch(this.traitsAdded.length){
       case 0: var diceSelect2 = this.dice2;
       diceSelect2.name= name;
       diceSelect2.number= number;
       diceSelect2.dice= dice;
-      this.traitsAdded.shift();
+      
       this.traitsAdded.push(diceSelect2);
       console.log(this.traitsAdded);
       break;
-      case 2: var diceSelect3 = this.dice3;
+      case 1: var diceSelect3 = this.dice3;
       diceSelect3.name= name;
       diceSelect3.number= number;
       diceSelect3.dice= dice;
-      this.traitsAdded.shift();
+      
       this.traitsAdded.push(diceSelect3);
       console.log(this.traitsAdded);
       break;
-      case 1: var diceSelect4 = this.dice4;
+      case 2: var diceSelect4 = this.dice4;
       diceSelect4.name= name;
       diceSelect4.number= number;
       diceSelect4.dice= dice;
-      this.traitsAdded.shift();
+      
       this.traitsAdded.push(diceSelect4);
       console.log(this.traitsAdded);
       break;
@@ -132,29 +133,29 @@ export class MasterScreenComponent implements OnInit {
     }
   }
   addDiceRelationship(name, number, dice){
-    var fill =this.relationshipsAdded.indexOf(0);
-    switch(fill){
+    
+    switch(this.relationshipsAdded.length){
       case 0: var diceSelect5 = this.dice5;
       diceSelect5.name= name;
       diceSelect5.number= number;
       diceSelect5.dice= dice;
-      this.relationshipsAdded.shift();
+      
       this.relationshipsAdded.push(diceSelect5);
       console.log(this.relationshipsAdded);
       break;
-      case 2: var diceSelect6 = this.dice6;
+      case 1: var diceSelect6 = this.dice6;
       diceSelect6.name= name;
       diceSelect6.number= number;
       diceSelect6.dice= dice;
-      this.relationshipsAdded.shift();
+      
       this.relationshipsAdded.push(diceSelect6);
       console.log(this.relationshipsAdded);
       break;
-      case 1: var diceSelect7 = this.dice7;
+      case 2: var diceSelect7 = this.dice7;
       diceSelect7.name= name;
       diceSelect7.number= number;
       diceSelect7.dice= dice;
-      this.relationshipsAdded.shift();
+      
       this.relationshipsAdded.push(diceSelect7);
       console.log(this.relationshipsAdded);
       break;

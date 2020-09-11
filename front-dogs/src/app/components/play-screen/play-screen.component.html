@@ -11,8 +11,9 @@
 <br>
 <button type="button" class="btn btn-danger" value="Roll" (click)="rollDice()">Roll</button>
 <div id=screen>
-    <p>{{result}}</p>
-</div>
-<br>
-<button (click)="getRndDice(6,'d6')"></button>
+    <td *ngFor="let number of result">
+        <button type="button" class="btn btn-light" id="dice">
+            {{number}}
+        </button>
+    </td>
 <br>

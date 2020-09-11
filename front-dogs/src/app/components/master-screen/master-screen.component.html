@@ -64,6 +64,7 @@
 
           <!--Traits-->
           <h2>Traits</h2>
+          
           <table class="table">
             <thead class="thead-dark">
               <tr>
@@ -73,15 +74,37 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let yes of traits">
-                <th scope="row" *ngIf="yes.name != ''">{{yes.name}}</th>
-                <td *ngIf="yes.name != ''">{{yes.number}}{{yes.dice}}</td>
-                <td *ngIf="yes.name != ''"><button class="btn btn-danger" (click)="addDiceTrait(yes.name, yes.number, yes.dice)">Add</button></td>
+              <tr>
+                <th scope="row" *ngIf="traits[0].name != ''">{{traits[0].name}}</th>
+                <td *ngIf="traits[0].name != ''">{{traits[0].number}}{{traits[0].dice}}</td>
+                <td *ngIf="traits[0].name != ''"><button class="btn btn-danger" (click)="addDiceTrait(traits[0].name, traits[0].number, traits[0].dice)">Add</button></td>
+              </tr>
+              <tr> 
+                <th scope="row" *ngIf="traits[1].name != ''">{{traits[1].name}}</th>
+                <td *ngIf="traits[1].name != ''">{{traits[1].number}}{{traits[1].dice}}</td>
+                <td *ngIf="traits[1].name != ''"><button class="btn btn-danger" (click)="addDiceTrait(traits[1].name, traits[1].number, traits[1].dice)">Add</button></td>
+              </tr>
+              <tr>  
+                <th scope="row" *ngIf="traits[2].name != ''">{{traits[2].name}}</th>
+                <td *ngIf="traits[2].name != ''">{{traits[2].number}}{{traits[2].dice}}</td>
+                <td *ngIf="traits[2].name != ''"><button class="btn btn-danger" (click)="addDiceTrait(traits[2].name, traits[2].number, traits[2].dice)">Add</button></td>
+              </tr>
+              <tr>   
+                <th scope="row" *ngIf="traits[3].name != ''">{{traits[3].name}}</th>
+                <td *ngIf="traits[3].name != ''">{{traits[3].number}}{{traits[3].dice}}</td>
+                <td *ngIf="traits[3].name != ''"><button class="btn btn-danger" (click)="addDiceTrait(traits[3].name, traits[3].number, traits[3].dice)">Add</button></td>
+              </tr>
+              <tr>  
+                <th scope="row" *ngIf="traits[4].name != ''">{{traits[4].name}}</th>
+                <td *ngIf="traits[4].name != ''">{{traits[4].number}}{{traits[4].dice}}</td>
+                <td *ngIf="traits[4].name != ''"><button class="btn btn-danger" (click)="addDiceTrait(traits[4].name, traits[4].number, traits[4].dice)">Add</button></td>
               
               </tr>
+            
               
             </tbody>
           </table>
+          
 
           <!--Relationships-->
           <h2>Relationships</h2>
@@ -90,16 +113,37 @@
               <tr>
                 <th scope="col">Name</th>
                 <th scope="col">Dice</th>
-
+        
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let people of relationships">
-                <th scope="row" *ngIf="people.name != ''">{{people.name}}</th>
-                <td *ngIf="people.name != ''">{{people.number}}{{people.dice}}</td>
-                <td *ngIf="people.name != ''"><button class="btn btn-danger" (click)="addDiceRelationship(people.name, people.number, people.dice)">Add</button></td>
+              <tr>
+                <th scope="row" *ngIf="relationships[0].name != ''">{{relationships[0].name}}</th>
+                <td *ngIf="relationships[0].name != ''">{{relationships[0].number}}{{relationships[0].dice}}</td>
+                <td *ngIf="relationships[0].name != ''"><button class="btn btn-danger" (click)="addDiceTrait(relationships[0].name, relationships[0].number, relationships[0].dice)">Add</button></td>
+              </tr>
+              <tr> 
+                <th scope="row" *ngIf="relationships[1].name != ''">{{relationships[1].name}}</th>
+                <td *ngIf="relationships[1].name != ''">{{relationships[1].number}}{{relationships[1].dice}}</td>
+                <td *ngIf="relationships[1].name != ''"><button class="btn btn-danger" (click)="addDiceTrait(relationships[1].name, relationships[1].number, relationships[1].dice)">Add</button></td>
+              </tr>
+              <tr>  
+                <th scope="row" *ngIf="relationships[2].name != ''">{{relationships[2].name}}</th>
+                <td *ngIf="relationships[2].name != ''">{{relationships[2].number}}{{relationships[2].dice}}</td>
+                <td *ngIf="relationships[2].name != ''"><button class="btn btn-danger" (click)="addDiceTrait(relationships[2].name, relationships[2].number, relationships[2].dice)">Add</button></td>
+              </tr>
+              <tr>   
+                <th scope="row" *ngIf="relationships[3].name != ''">{{relationships[3].name}}</th>
+                <td *ngIf="relationships[3].name != ''">{{relationships[3].number}}{{relationships[3].dice}}</td>
+                <td *ngIf="relationships[3].name != ''"><button class="btn btn-danger" (click)="addDiceTrait(relationships[3].name, relationships[3].number, relationships[3].dice)">Add</button></td>
+              </tr>
+              <tr>  
+                <th scope="row" *ngIf="relationships[4].name != ''">{{relationships[4].name}}</th>
+                <td *ngIf="relationships[4].name != ''">{{relationships[4].number}}{{relationships[4].dice}}</td>
+                <td *ngIf="relationships[4].name != ''"><button class="btn btn-danger" (click)="addDiceTrait(relationships[4].name, relationships[4].number, relationships[4].dice)">Add</button></td>
               
               </tr>
+            
               
             </tbody>
           </table>

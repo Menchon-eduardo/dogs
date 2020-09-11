@@ -12,7 +12,9 @@ export class PlayScreenComponent implements OnInit {
   @Input() diceAdded: any;
   public result: Array<any>;
 
-  constructor() { }
+  constructor() {
+    this.result = []
+   }
 
   ngOnInit(): void {
   }

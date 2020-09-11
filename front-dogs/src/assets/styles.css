@@ -42,11 +42,18 @@ body{
     box-shadow: 2px 2px 2px  black;
     background: rgb(160, 158, 158);
     padding: 10px;
+   
+    
 }
 #dice{
+    
     margin: 3px;
+    vertical-align: top;
+    display: inline;
     align-items: center;
     padding: 3px;
+    
+    
 }
 
 
